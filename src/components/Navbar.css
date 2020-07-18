@@ -1,0 +1,39 @@
+.disabled-link {
+    pointer-events: none;
+    margin: 0 30px;
+    text-decoration: none;
+    color: grey;
+}
+
+.Navbar {
+    display: flex;
+    align-items: center;
+}
+
+.Navbar-link {
+    margin: 0 30px;
+    text-decoration: none;
+}
+
+.Navbar-link:hover {
+    text-decoration: underline;
+}
+
+.Navbar-active {
+    color: black
+}
+
+.Navbar-userinfo {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.Navbar-userinfo p {
+    margin: 5px auto;
+}
+
+.Navbar-signout {
+    margin-bottom: 15px;
+    background-color: red;
+}
+

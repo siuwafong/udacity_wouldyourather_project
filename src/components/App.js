@@ -1,13 +1,13 @@
-import React, {Fragment, Component} from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route} from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Navbar from './Navbar'
-import QuestionList from './QuestionList'
 import CreateQuestion from './CreateQuestion'
-import Signin from './Signin'
 import RankList from './RankList'
-import { setAuthedUser } from '../actions/authedUser'
+import Home from './Home'
+import QuestionDetails from './QuestionDetails'
+import ErrorPage from './ErrorPage'
 
 class App extends Component {
   render() {
@@ -15,35 +15,33 @@ class App extends Component {
     return (
       <>
         <div className="App">
-          {this.props.authedUser === null 
-            ? <Signin />
-            : 
-            <>
-              <h3> Welcome {this.props.authedUser}!</h3>
-
-              <button onClick={this.props.signOut}> Sign Out</button>
-              
-              <QuestionList authedUser={this.props.authedUser}/>
-              <CreateQuestion />
-              <RankList />
-            </>}
+          <Navbar />
+          <Switch>
+            <Route exact path="/" render={() => <Home />} />
+            <Route exact path="/add" render={() => <CreateQuestion />} />
+            <Route exact path="/leaderboard" render={() => <RankList />} />
+            <Route exact path="/questions/:question_id" render={routeProps => <QuestionDetails {...routeProps} />} />
+            <Route exact path="/errorpage" render={(routeProps) => <ErrorPage {...routeProps}/>} />
+            <Redirect to={{
+                        pathname: "/ErrorPage",
+                        state: { errorType: "invalidURL"}
+            }}
+            />
+          </Switch>
         </div>
       </>
     );
   }
 }
 
+// Object.keys(questions).includes(questions[id].id) ? `/questions/${questions[id].id}` : `/error`
+
 const mapStateToProps = (state) => {
   return {
       authedUser: state.authedUser, 
+      questions: state.questions
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-      signOut: () => dispatch(setAuthedUser(null))
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
 

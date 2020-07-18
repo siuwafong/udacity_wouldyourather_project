@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleCreateQuestion } from '../actions/questions'
+import { Redirect } from 'react-router-dom'
+
+
 
 class CreateQuestion extends Component {
     constructor(props) {
@@ -8,7 +11,8 @@ class CreateQuestion extends Component {
         
         this.state = {
             optionOneText: '',
-            optionTwoText: ''
+            optionTwoText: '',
+            redirect: false
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,7 +29,8 @@ class CreateQuestion extends Component {
             optionOneText: this.state.optionOneText,
             optionTwoText: this.state.optionTwoText
         })
-        this.setState({optionOneText: '', optionTwoText: ''})
+        this.setState({optionOneText: '', optionTwoText: '', redirect: true})
+
     }
 
     handleChange(evt) {
@@ -35,6 +40,16 @@ class CreateQuestion extends Component {
     }
 
     render() {
+
+        if (this.state.redirect) {return <Redirect to="/" />}
+
+        if (this.props.authedUser === null) 
+        {
+            return <Redirect to={{
+                                pathname: "/ErrorPage", 
+                                state: { errorType: "notLoggedIn", isLoggedIn: false }
+            }}/>
+        }
         
         return (
             <div>

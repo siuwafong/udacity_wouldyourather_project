@@ -20,7 +20,8 @@ export function questionsReducer (state = {}, action) {
                         ...state[questionId],
                         optionOne: {
                             ...state[questionId.optionOne],
-                            votes: state[questionId].optionOne.votes.concat(respondent)
+                            votes: state[questionId].optionOne.votes.concat(respondent),
+                            text: state[questionId].optionOne.text
                         }
                     }    
                 }
@@ -31,7 +32,8 @@ export function questionsReducer (state = {}, action) {
                     ...state[questionId],
                     optionTwo: {
                         ...state[questionId.optionTwo],
-                        votes: state[questionId].optionTwo.votes.concat(respondent)
+                        votes: state[questionId].optionTwo.votes.concat(respondent),
+                        text: state[questionId].optionTwo.text
                     }
                 }  
             }

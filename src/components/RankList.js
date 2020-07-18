@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import UserInfo from './UserInfo'
+import { Redirect } from 'react-router-dom'
 
 class RankList extends Component {
     render() {
+
+        if (this.props.authedUser === null) 
+        {
+            return <Redirect to={{
+                                pathname: "/ErrorPage", 
+                                state: { errorType: "notLoggedIn", isLoggedIn: false }
+            }}/>
+        }
 
         const userList = Object.keys(this.props.users).map(key => {
             return this.props.users[key]
@@ -24,7 +33,8 @@ class RankList extends Component {
         return (
             <div>
                 <h1> Top Users </h1>
-                {userStats.sort((a, b) => (b.answerAmount + b.questionAmount) - (a.answerAmount + a.questionAmount))
+                {userStats
+                    .sort((a, b) => (b.answerAmount + b.questionAmount) - (a.answerAmount + a.questionAmount))
                     .map(user => (
                         <UserInfo key={user.id} id={user.id} answerAmount={user.answerAmount} questionAmount={user.questionAmount}/>
                     ))
@@ -37,7 +47,8 @@ class RankList extends Component {
 const mapStateToProps = (state) => {
     return {
         questions: state.questions,
-        users: state.users
+        users: state.users,
+        authedUser: state.authedUser
     }
 }
 
