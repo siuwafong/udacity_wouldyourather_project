@@ -46,6 +46,8 @@ export function questionsReducer (state = {}, action) {
                 ...state,
                 [newQuestionId]: {...newQuestion}
             }
+        case CREATE_QUESTION_FAILURE: 
+            return { action }
         default:
             return state
     }

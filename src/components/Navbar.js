@@ -22,7 +22,7 @@ class Navbar extends Component {
             {this.props.authedUser !== null &&
                 <div className="Navbar-userinfo">
                     <p> Welcome {this.props.authedUser}! </p>
-                    <Link exact to="/">
+                    <Link to="/">
                         <button className="Navbar-signout" onClick={this.props.signOut}> Sign Out</button>
                     </Link>
                 </div>

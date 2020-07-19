@@ -19,12 +19,12 @@ class QuestionSummary extends Component {
         return (
             <div>
                 <Container className="QuestionSummary-container" maxWidth="md">
-                    <p> Date Created: {month}/{day}/{year} at {hours}:{minutes < 10 ? `0${minutes}` : minutes } {date.getHours() > 11 ? "PM" : "AM"} </p>
+                    <p> Date Created: {month}/{day}/{year} at {hours % 12}:{minutes < 10 ? `0${minutes}` : minutes } {date.getHours() > 11 ? "PM" : "AM"} </p>
                     <p> {questions[id].author} asks: </p>
-                    <img className="QuestionSummary-profile" alt={questions[id].author} src={users[questions[id].author].avatarURL} />
+                    <img className="QuestionSummary-profilePic" alt={questions[id].author} src={users[questions[id].author].avatarURL} />
                     <h3>Would you rather...</h3>
                     <Link to={`/questions/${questions[id].id}`}>
-                        <button>View Poll</button>
+                        <button className="QuestionSummary-submitBtn">View Poll</button>
                     </Link>
                 </Container>
             </div>

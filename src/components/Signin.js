@@ -7,6 +7,7 @@ import { setAuthedUser } from '../actions/authedUser'
 import LoadingBar from 'react-redux-loading'
 import { Container } from '@material-ui/core';
 import './Signin.css'
+import titleImage from '../title.jpg'
 
 class Signin extends Component {
     constructor(props) {
@@ -47,13 +48,14 @@ class Signin extends Component {
             <div>
                 <LoadingBar />
                 <Container className="Signin-container" maxWidth="lg">
-                    <h1> Would You Rather...? </h1>
                     {Object.keys(this.props.users).length === 0
                     ? <h2> Fetching users and questions...please wait... </h2>
-                    :   <div>
+                    :   <div className="Signin-content">
+                            <h1> Would You Rather...? </h1>
+                            <img src={titleImage} alt="title" />
                             <h2> Please log in</h2>
                             <form onSubmit={this.handleSubmit}>
-                            <label htmlFor="user-select">Log in:</label>
+                            <label htmlFor="user-select">Sign in:</label>
                             <select name="user-select" id="user-select" onChange={this.handleChange} value={this.state.selectedUser}> 
                                 <option value="none" disabled>Select user...</option>
                                 {userList.map(user => (
@@ -62,8 +64,9 @@ class Signin extends Component {
                             </select>
                             <button>Sign In</button>
                             </form>
+                            {this.state.errorMessage && <p className="Signin-errorMessage"> Please choose a user.</p>}
                         </div>}
-                    {this.state.errorMessage && <p className="Signin-errorMessage"> Please choose a user.</p>}
+                    
                 </Container>
             </div>
         )

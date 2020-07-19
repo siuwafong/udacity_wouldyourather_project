@@ -37,8 +37,8 @@ class QuestionList extends Component {
                  questionList.filter(question => (!question.optionOne.votes.includes(this.props.authedUser) && !question.optionTwo.votes
                         .includes(this.props.authedUser)))
                         .sort((a, b) => b.timestamp - a.timestamp)
-                        .map((filteredQuestion) => (
-                            <QuestionSummary key={filteredQuestion.id} id={filteredQuestion.id}/>
+                        .map((filteredQuestion, idx) => (
+                            <QuestionSummary key={filteredQuestion.id} id={filteredQuestion.id} rank={idx + 1}/>
                         ))
                 }
 

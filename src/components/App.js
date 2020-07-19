@@ -17,7 +17,7 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Switch>
-            <Route exact path="/" render={() => <Home />} />
+            <Route exact path="/" render={(routeProps) => <Home {...routeProps}/>} />
             <Route exact path="/add" render={() => <CreateQuestion />} />
             <Route exact path="/leaderboard" render={() => <RankList />} />
             <Route exact path="/questions/:question_id" render={routeProps => <QuestionDetails {...routeProps} />} />

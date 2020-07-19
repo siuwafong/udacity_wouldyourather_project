@@ -7,4 +7,15 @@
    margin: 20px 20px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
    text-align: center;
+   padding: 15px 0;
+}
+
+.QuestionSummary-profilePic {
+   width: 70px;
+   height: 70px;
+}
+
+.QuestionSummary-submitBtn {
+   font-size: 30px;
+   border-radius: 5%;
 }

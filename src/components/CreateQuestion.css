@@ -1,0 +1,23 @@
+.CreateQuestion-container {
+    margin: 20px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    display: flex;
+}
+
+
+
+#optionOneText,#optionTwoText {
+    width: 500px;
+    margin: 15px 0;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+  }
+  
+  :-moz-placeholder {
+    text-align: center;
+  }

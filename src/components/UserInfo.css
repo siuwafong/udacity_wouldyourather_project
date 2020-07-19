@@ -1,0 +1,18 @@
+.userInfo-profilePic {
+    width: 70px;
+    height: 70px;
+}
+
+.UserInfo-container {
+    border: 2px solid black;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.UserInfo-FirstPlace {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-top: 0;
+    background-color: red;
+}
