@@ -9,7 +9,7 @@ This webapp was created with create-react-app. Material-UI was used for styling 
 # Instructions
 
 * Install all project dependencies with `npm install`
-* State the development server with `npm start`
+* Start the development server with `npm start`
 
 ## How to Use
 
