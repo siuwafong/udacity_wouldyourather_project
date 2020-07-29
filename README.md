@@ -1,6 +1,6 @@
 # Would You Rather? Project
 
-This is the second project from Udacity's React Nanodegree program. Uses can log in with different accounts.  They can answer and create different "Would you rather?" questions. There is also a leaderboard that ranks users according to the total number of questions they've answered and created. The only file provided prior to its development is the DATA.js file to simulate writing to the back end.
+This is the second project from Udacity's React Nanodegree program. Users can log in with different accounts.  They can answer and create different "Would you rather?" questions. There is also a leaderboard that ranks users according to the total number of questions they've answered and created. The only file provided prior to its development is the DATA.js file to simulate writing to the back end.
 
 # Libraries/Frameworks
 
